@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap');
+@import '@fontsource/poppins/400.css';
+@import '@fontsource/poppins/600.css';
+
+
+
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
@@ -24,6 +30,7 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
+  font-family:'Noto Sans',sans-serif;
 }
 
 @layer utilities {
@@ -31,3 +38,5 @@ body {
     text-wrap: balance;
   }
 }
+
+
