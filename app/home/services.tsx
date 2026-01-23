@@ -31,36 +31,36 @@ export const projects = [
         title: "Media Solutions",
         description:
             "Comprehensive media strategies including branding, advertising, and digital presence management to elevate your business identity.",
-        link: "#",
+        link: "/demo-service",
     },
     {
         title: "Multimedia Animations",
         description:
             "Engaging 2D and 3D animations, motion graphics, and visual effects to bring your stories and marketing campaigns to life.",
-        link: "#",
+        link: "/demo-service",
     },
     {
         title: "SEO/SMO",
         description:
             "Data-driven Search Engine Optimization and Social Media Optimization to boost your visibility, rankings, and audience engagement.",
-        link: "#",
+        link: "/demo-service",
     },
     {
         title: "Software & Website Development",
         description:
             "Custom software solutions and responsive, high-performance websites tailored to meet your specific business requirements.",
-        link: "#",
+        link: "/demo-service",
     },
     {
         title: "Mobile Application Development",
         description:
             "Native and cross-platform mobile apps for iOS and Android, designed for seamless user experience and high functionality.",
-        link: "#",
+        link: "/demo-service",
     },
     {
         title: "Web Hosting",
         description:
             "Secure, reliable, and high-speed web hosting services ensuring your digital assets are always accessible and performing optimally.",
-        link: "#",
+        link: "/demo-service",
     },
 ];

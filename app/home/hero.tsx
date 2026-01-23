@@ -3,7 +3,8 @@
 import { Button } from "@/components/ui/button"
 import { TypingEffect } from "@/components/typing-effect"
 import { motion } from "framer-motion"
-import { ArrowRight, Sparkles } from "lucide-react"
+import { FaArrowRight } from "react-icons/fa"
+import { BsStars } from "react-icons/bs"
 
 export function Hero() {
     const typingPhrases = [
@@ -29,7 +30,7 @@ export function Hero() {
                     transition={{ duration: 0.5 }}
                     className="inline-flex items-center rounded-full border border-primary/20 bg-primary/5 px-3 py-1 text-sm font-medium text-primary mb-6"
                 >
-                    <Sparkles className="mr-2 h-4 w-4" />
+                    <BsStars className="mr-2 h-4 w-4" />
                     <span>Reimagining Digital Experiences</span>
                 </motion.div>
 
@@ -60,7 +61,7 @@ export function Hero() {
                     className="mt-10 flex flex-col sm:flex-row gap-4 w-full sm:w-auto"
                 >
                     <Button size="lg" className="h-12 px-8 text-base rounded-full">
-                        Start Your Project <ArrowRight className="ml-2 h-4 w-4" />
+                        Start Your Project <FaArrowRight className="ml-2 h-4 w-4" />
                     </Button>
                     <Button size="lg" variant="outline" className="h-12 px-8 text-base rounded-full bg-background/50 backdrop-blur-sm">
                         View Our Work

@@ -5,7 +5,7 @@ import Link from "next/link"
 import Image from "next/image"
 import { motion, AnimatePresence } from "framer-motion"
 import { usePathname, useRouter } from "next/navigation"
-import { Menu, X } from "lucide-react"
+import { FiMenu, FiX } from "react-icons/fi"
 
 export function Navbar() {
     const pathname = usePathname();
@@ -28,7 +28,7 @@ export function Navbar() {
             initial={{ y: -100 }}
             animate={{ y: 0 }}
             transition={{ type: "spring", stiffness: 300, damping: 30 }}
-            className="sticky top-0 z-50 w-full border-b border-border/50 bg-background/80 backdrop-blur-md supports-[backdrop-filter]:bg-background/60"
+            className="fixed top-0 z-50 w-full border-b border-border/50 bg-background/80 backdrop-blur-md supports-[backdrop-filter]:bg-background/60"
         >
             <div className="container-wrapper flex h-16 items-center justify-between">
                 <Link href="/" className="mr-6 flex items-center space-x-2" onClick={() => setIsOpen(false)}>
@@ -55,7 +55,7 @@ export function Navbar() {
                     className="md:hidden p-2 text-foreground/70 hover:text-primary focus:outline-none"
                     onClick={() => setIsOpen(!isOpen)}
                 >
-                    {isOpen ? <X size={24} /> : <Menu size={24} />}
+                    {isOpen ? <FiX size={24} /> : <FiMenu size={24} />}
                 </button>
             </div>
 
