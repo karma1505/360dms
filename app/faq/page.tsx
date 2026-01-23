@@ -116,8 +116,8 @@ export default function FAQPage() {
             </section>
 
             {/* CTA Section */}
-            <section className="py-20 bg-primary/5 border-t border-border/50">
-                <div className="container px-4 text-center">
+            <section className="py-20">
+                <div className="container px-4 text-center mx-auto">
                     <h3 className="text-2xl md:text-3xl font-bold mb-6">
                         Has any of your question gone unanswered?
                     </h3>
