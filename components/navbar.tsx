@@ -47,7 +47,8 @@ export function Navbar() {
                     <Link href="/#services" onClick={(e) => handleScroll(e, "services")} className="text-foreground/70 transition-colors hover:text-primary">Services</Link>
                     <Link href="/#about" onClick={(e) => handleScroll(e, "about")} className="text-foreground/70 transition-colors hover:text-primary">About</Link>
                     <Link href="/portfolio" className="text-foreground/70 transition-colors hover:text-primary">Portfolio</Link>
-                    <Link href="/contact" className="text-foreground/70 transition-colors hover:text-primary">Contact</Link>
+                    <Link href="/faq" className="text-foreground/70 transition-colors hover:text-primary">FAQ</Link>
+                    <Link href="/#contact" onClick={(e) => handleScroll(e, "contact")} className="text-foreground/70 transition-colors hover:text-primary">Contact</Link>
                 </nav>
 
                 {/* Mobile Menu Toggle */}
@@ -91,8 +92,15 @@ export function Navbar() {
                                 Portfolio
                             </Link>
                             <Link
-                                href="/contact"
+                                href="/faq"
                                 onClick={() => setIsOpen(false)}
+                                className="block px-4 py-2 text-foreground/70 hover:bg-muted rounded-md transition-colors hover:text-primary"
+                            >
+                                FAQ
+                            </Link>
+                            <Link
+                                href="/#contact"
+                                onClick={(e) => handleScroll(e, "contact")}
                                 className="block px-4 py-2 text-foreground/70 hover:bg-muted rounded-md transition-colors hover:text-primary"
                             >
                                 Contact

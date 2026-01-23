@@ -22,7 +22,7 @@ export function Footer() {
     };
 
     return (
-        <footer className="w-full bg-secondary/30 border-t border-border/50 pt-16 pb-8">
+        <footer id="contact" className="w-full bg-secondary/30 border-t border-border/50 pt-16 pb-8">
             <div className="container px-4 md:px-6 mx-auto">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
                     {/* Brand & Socials */}
@@ -56,6 +56,7 @@ export function Footer() {
                             <Link href="/#services" onClick={(e) => handleScroll(e, "services")} className="text-muted-foreground hover:text-primary transition-colors text-sm">Services</Link>
                             <Link href="/#about" onClick={(e) => handleScroll(e, "about")} className="text-muted-foreground hover:text-primary transition-colors text-sm">About Us</Link>
                             <Link href="/portfolio" className="text-muted-foreground hover:text-primary transition-colors text-sm">Portfolio</Link>
+                            <Link href="/#contact" onClick={(e) => handleScroll(e, "contact")} className="text-muted-foreground hover:text-primary transition-colors text-sm">Contact</Link>
                         </nav>
                     </div>
 
