@@ -1,17 +1,19 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
+import Link from "next/link"
 import { TypingEffect } from "@/components/typing-effect"
+import { TypingEffectSmooth } from "@/components/ui/typewriter-effect"
 import { motion } from "framer-motion"
 import { FaArrowRight } from "react-icons/fa"
 import { BsStars } from "react-icons/bs"
 
 export function Hero() {
     const typingPhrases = [
-        "A Brand New Look",
-        "Stunning Websites",
-        "Digital Excellence",
-        "Creative Solutions",
+        " A Brand New Look",
+        " Stunning Websites",
+        " Digital Excellence",
+        " Creative Solutions",
     ]
 
     return (
@@ -38,10 +40,12 @@ export function Hero() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.1 }}
-                    className="text-4xl font-extrabold tracking-tight sm:text-6xl md:text-7xl lg:text-8xl 2xl:text-9xl max-w-6xl 2xl:max-w-7xl"
+                    className="text-4xl font-extrabold tracking-tight sm:text-6xl md:text-7xl lg:text-8xl 2xl:text-9xl max-w-6xl 2xl:max-w-7xl flex flex-col items-center justify-center gap-2 md:gap-4"
                 >
-                    Let's Give Your Platform <span className="text-primary whitespace-nowrap">
-                        <TypingEffect phrases={typingPhrases} className="text-primary" />
+
+                    <span className="block">Let's Give Your Platform</span>
+                    <span className="text-primary block min-h-[1.2em] w-full flex justify-center">
+                        <TypingEffectSmooth phrases={typingPhrases} className="text-primary" />
                     </span>
                 </motion.h1>
 
@@ -60,11 +64,15 @@ export function Hero() {
                     transition={{ duration: 0.5, delay: 0.3 }}
                     className="mt-10 flex flex-col sm:flex-row gap-4 w-full sm:w-auto"
                 >
-                    <Button size="lg" className="h-12 px-8 text-base rounded-full">
-                        Start Your Project <FaArrowRight className="ml-2 h-4 w-4" />
+                    <Button size="lg" className="h-12 px-8 text-base rounded-full" asChild>
+                        <Link href="/contact-form">
+                            Start Your Project <FaArrowRight className="ml-2 h-4 w-4" />
+                        </Link>
                     </Button>
-                    <Button size="lg" variant="outline" className="h-12 px-8 text-base rounded-full bg-background/50 backdrop-blur-sm">
-                        View Our Work
+                    <Button size="lg" variant="outline" className="h-12 px-8 text-base rounded-full bg-background/50 backdrop-blur-sm" asChild>
+                        <Link href="/portfolio">
+                            View Our Work
+                        </Link>
                     </Button>
                 </motion.div>
             </div>

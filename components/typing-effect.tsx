@@ -2,12 +2,13 @@
 
 import React, { useState, useEffect } from "react"
 
-interface TypingEffectProps {
+export interface TypingEffectProps {
     phrases: string[]
     typingSpeed?: number
     deletingSpeed?: number
     pauseDuration?: number
     className?: string
+    minLength?: number
 }
 
 export function TypingEffect({
@@ -16,42 +17,73 @@ export function TypingEffect({
     deletingSpeed = 50,
     pauseDuration = 1500,
     className = "",
+    minLength = 0,
 }: TypingEffectProps) {
-    const [displayedText, setDisplayedText] = useState("")
-    const [phraseIndex, setPhraseIndex] = useState(0)
-    const [isDeleting, setIsDeleting] = useState(false)
+    const [displayedText, setDisplayedText] = useState(phrases[0].slice(0, minLength))
+
+    // Internal state to track logic without causing re-renders
+    const stateRef = React.useRef({
+        text: phrases[0].slice(0, minLength),
+        phraseIndex: 0,
+        mode: "typing" as "typing" | "deleting" | "pausing",
+        lastUpdate: 0
+    })
 
     useEffect(() => {
-        const currentPhrase = phrases[phraseIndex]
-        let timer: NodeJS.Timeout
+        let animationFrameId: number;
 
-        if (!isDeleting) {
-            // Typing phase
-            if (displayedText.length < currentPhrase.length) {
-                timer = setTimeout(() => {
-                    setDisplayedText(currentPhrase.slice(0, displayedText.length + 1))
-                }, typingSpeed)
-            } else {
-                // Pause at end of phrase
-                timer = setTimeout(() => {
-                    setIsDeleting(true)
-                }, pauseDuration)
-            }
-        } else {
-            // Deleting phase
-            if (displayedText.length > 0) {
-                timer = setTimeout(() => {
-                    setDisplayedText(displayedText.slice(0, -1))
-                }, deletingSpeed)
-            } else {
-                // Move to next phrase
-                setPhraseIndex((prev) => (prev + 1) % phrases.length)
-                setIsDeleting(false)
-            }
-        }
+        const animate = (timestamp: number) => {
+            const state = stateRef.current;
 
-        return () => clearTimeout(timer)
-    }, [displayedText, isDeleting, phraseIndex, phrases, typingSpeed, deletingSpeed, pauseDuration])
+            // Initialize start time
+            if (!state.lastUpdate) state.lastUpdate = timestamp;
+
+            const now = timestamp;
+            const elapsed = now - state.lastUpdate;
+
+            // Determine target delay based on mode
+            let targetDelay = typingSpeed;
+            if (state.mode === "deleting") targetDelay = deletingSpeed;
+            if (state.mode === "pausing") targetDelay = pauseDuration;
+
+            if (elapsed >= targetDelay) {
+                const currentPhrase = phrases[state.phraseIndex];
+
+                if (state.mode === "typing") {
+                    if (state.text.length < currentPhrase.length) {
+                        state.text = currentPhrase.slice(0, state.text.length + 1);
+                        setDisplayedText(state.text);
+                        state.lastUpdate = now; // Reset timer
+                    } else {
+                        // Finished typing, switch to pause
+                        state.mode = "pausing";
+                        state.lastUpdate = now;
+                    }
+                } else if (state.mode === "deleting") {
+                    if (state.text.length > minLength) {
+                        state.text = state.text.slice(0, -1);
+                        setDisplayedText(state.text);
+                        state.lastUpdate = now;
+                    } else {
+                        // Finished deleting, switch to next phrase
+                        state.phraseIndex = (state.phraseIndex + 1) % phrases.length;
+                        state.mode = "typing";
+                        state.lastUpdate = now;
+                    }
+                } else if (state.mode === "pausing") {
+                    // Pause complete, switch to deleting
+                    state.mode = "deleting";
+                    state.lastUpdate = now;
+                }
+            }
+
+            animationFrameId = requestAnimationFrame(animate);
+        };
+
+        animationFrameId = requestAnimationFrame(animate);
+
+        return () => cancelAnimationFrame(animationFrameId);
+    }, [phrases, typingSpeed, deletingSpeed, pauseDuration, minLength]);
 
     return (
         <span className={className}>
