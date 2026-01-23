@@ -14,7 +14,7 @@ export function Hero() {
     ]
 
     return (
-        <section className="relative overflow-hidden min-h-screen flex items-center justify-center pt-20 pb-32 md:pt-0 md:pb-0">
+        <section className="relative overflow-hidden min-h-[100dvh] flex items-center justify-center pt-20 pb-32 md:pt-0 md:pb-0">
             {/* Background Decor */}
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full -z-10 pointer-events-none">
                 <div className="absolute top-20 left-[20%] w-[30rem] h-[30rem] bg-primary/20 rounded-full blur-[100px] opacity-50 dark:opacity-20 animate-pulse"></div>
@@ -37,7 +37,7 @@ export function Hero() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.1 }}
-                    className="text-4xl font-extrabold tracking-tight sm:text-6xl md:text-7xl lg:text-8xl max-w-6xl"
+                    className="text-4xl font-extrabold tracking-tight sm:text-6xl md:text-7xl lg:text-8xl 2xl:text-9xl max-w-6xl 2xl:max-w-7xl"
                 >
                     Let's Give Your Platform <span className="text-primary whitespace-nowrap">
                         <TypingEffect phrases={typingPhrases} className="text-primary" />

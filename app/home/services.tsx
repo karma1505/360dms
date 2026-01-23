@@ -4,13 +4,13 @@ import { motion } from "framer-motion";
 
 export function Services() {
     return (
-        <section id="services" className="max-w-5xl mx-auto px-8 py-20">
+        <section id="services" className="max-w-7xl 2xl:max-w-screen-xl mx-auto px-8 py-20">
             <motion.h1
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5 }}
-                className="text-4xl md:text-6xl font-bold text-center mb-12"
+                className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-center mb-12"
             >
                 Our Services
             </motion.h1>
