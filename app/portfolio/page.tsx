@@ -133,13 +133,13 @@ export default function PortfolioPage() {
             </section>
 
             {/* CTA Section */}
-            <section className="py-24 bg-primary text-primary-foreground relative overflow-hidden">
+            <section className="py-24 bg-background text-foreground relative overflow-hidden">
                 <div className="container px-4 md:px-6 mx-auto text-center relative z-10">
                     <h2 className="text-3xl md:text-5xl font-bold mb-6">Ready to start your project?</h2>
-                    <p className="text-primary-foreground/80 text-lg md:text-xl max-w-2xl mx-auto mb-10">
+                    <p className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto mb-10">
                         Let's collaborate to create something extraordinary. Your vision, our expertise.
                     </p>
-                    <Button size="lg" variant="secondary" className="rounded-full h-12 px-8 text-base font-semibold" asChild>
+                    <Button size="lg" className="rounded-full h-12 px-8 text-base font-semibold" asChild>
                         <Link href="/contact">
                             Get in Touch <FaArrowRight className="ml-2" />
                         </Link>
@@ -147,8 +147,9 @@ export default function PortfolioPage() {
                 </div>
 
                 {/* Background Decor for CTA */}
-                <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/4 w-96 h-96 bg-white/10 rounded-full blur-3xl"></div>
-                <div className="absolute bottom-0 left-0 translate-y-1/2 -translate-x-1/4 w-96 h-96 bg-white/10 rounded-full blur-3xl"></div>
+                {/* Background Decor for CTA */}
+                <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl"></div>
+                <div className="absolute bottom-0 left-0 translate-y-1/2 -translate-x-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl"></div>
             </section>
         </main>
     );
