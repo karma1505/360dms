@@ -64,7 +64,7 @@ export function Hero() {
                     transition={{ duration: 0.5, delay: 0.3 }}
                     className="mt-10 flex flex-col sm:flex-row gap-4 w-full sm:w-auto"
                 >
-                    <Button size="lg" className="h-12 px-8 text-base rounded-full" asChild>
+                    <Button size="lg" className="h-12 px-8 text-base rounded-full bg-gradient-to-br from-primary to-[#C5A059] border-0 hover:opacity-90 transition-opacity" asChild>
                         <Link href="/contact-form">
                             Start Your Project <FaArrowRight className="ml-2 h-4 w-4" />
                         </Link>
